@@ -57,10 +57,10 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="" className="logout">
+                        <Link to="/login" className="logout">
                             <i className="fas fa-sign-out-alt" />
-                            <span className="nav-item">Log out</span>
-                        </a>
+                            <span className="nav-item" >Log out</span>
+                        </Link>
                     </li>
                 </ul>
             </nav>

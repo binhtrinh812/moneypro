@@ -1,8 +1,25 @@
+import { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post("http://localhost:5000/login", {
+                username,
+                password
+            })
+            alert(res.data.message);
+            window.location = "/"
+        } catch (error) {
+            alert(error.response.data.error);
+        }
+    }
     return (
         <div>
             <div className="container-login">
@@ -25,6 +42,7 @@ const Login = () => {
                             type="text"
                             name="taikhoan"
                             required=""
+                            onChange={(e)=> setUsername(e.target.value)}
                         />
                         <label htmlFor="inputEmail">Tài khoản</label>
                         <div className="input-line" />
@@ -40,11 +58,12 @@ const Login = () => {
                             placeholder=""
                             name="matkhau"
                             required=""
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                         <label htmlFor="inputPassword">Mật khẩu</label>
                         <div className="input-line" />
                     </div>
-                    <button type="submit" name="login">
+                    <button type="submit" name="login" onClick={handleLogin}>
                         Đăng nhập
                     </button>
                     <div className="register-link">
