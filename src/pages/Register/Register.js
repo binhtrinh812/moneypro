@@ -18,7 +18,7 @@ const Register = () => {
           password,
         });
         alert(res.data.message);
-        window.location = '/Login';
+        window.location = '/';
       } catch (error) {
         alert(error.response.data.error);
       }
