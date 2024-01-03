@@ -58,6 +58,27 @@ nav .fas {
     margin-left: 10px;
 }
 
+ul li ul.navDropdown li {
+    display: block;
+}
+
+ul li ul.navDropdown {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    text-align: center;
+}
+
+ul li a:hover {
+    background: #000;
+}
+
+ul li:hover ul.navDropdown {
+    display: block;
+}
+
 a:hover {
     background: #eee;
 }

@@ -15,7 +15,7 @@ const Login = () => {
                 password
             })
             alert(res.data.message);
-            window.location = "/"
+            window.location = "/Home"
         } catch (error) {
             alert(error.response.data.error);
         }
